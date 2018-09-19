@@ -41,6 +41,8 @@ export default {
 </script>
 
 <style>
+@import "https://bootswatch.com/4/journal/bootstrap.min.css";
+
 #app {
     text-align: center;
     margin-top: 60px;
