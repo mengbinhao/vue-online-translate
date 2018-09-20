@@ -40,9 +40,8 @@ export default {
 }
 </script>
 
-<style>
-@import "https://bootswatch.com/4/journal/bootstrap.min.css";
 
+<style scoped>
 #app {
     text-align: center;
     margin-top: 60px;
