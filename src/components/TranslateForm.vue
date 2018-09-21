@@ -1,14 +1,12 @@
 <template>
-    <div id="translateForm" class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form class="form-inline go-center" @submit="formSubmit">
-                <input  id="trans-form" class="form-control" type="text" placeholder="please input ..." v-model="msg">
-                <select v-model="lang" class="form-control">
-                    <option value="en">English</option>
-                    <option value="ru">Russian</option>
-                    <option value="ja">Korean</option>
+    <div id="translateForm" class="wrapper">
+        <div class="box-form">
+            <form @submit="formSubmit">
+                <input  id="form-input" type="text" placeholder="please input ..." v-model="msg">
+                <select v-model="lang">
+                    <option v-for="(option, index) in options" :key="index" :value="option.value">{{ option.content}}</option>
                 </select>
-                <input class="btn btn-primary" type="submit" value="translate">
+                <input id="test" class="btn btn-info btn-sm" type="submit" value="translate" ref="clickForTranslate">
             </form>
         </div>
     </div>
@@ -19,28 +17,45 @@ export default {
     data () {
         return {
             msg: '',
-            lang: ''
+            lang: '',
+            isSearch: true,
+            options: []
         }
     },
     methods: {
         formSubmit(e) {
-            e.preventDefault();
-            if (this.msg.trim() === '') return
-            this.$emit('formSubmit', this.msg, this.lang)
+            this.$refs.clickForTranslate.setAttribute("disabled", true)
+            e.preventDefault()
+            if (this.msg.trim() === '') {
+                this.isSearch = false
+            } else {
+                this.isSearch = true
+            }
+            this.$emit('formSubmit', this.msg, this.lang, this.isSearch)
         }
     },
     created: function () {
-        this.lang = 'en'
+        let defaultOption = [{"content":"English", "value":"en"}, {"content":"Russian", "value":"ru"}, {"content":"Korean", "value":"ko"}]
+        defaultOption.forEach((item) => {
+            this.options.push(item);
+        })
+        this.lang = this.options[0].value
     }
 }
 </script>
 <style scoped>
-#trans-form {
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-input {
     border: 1px #ccc solid;
     border-radius: 10px;
 }
-
-.go-center {
-    justify-content: center;
-}
+/* input:focus
+{
+    outline: none;
+} */
 </style>

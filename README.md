@@ -1,27 +1,22 @@
 # online-translate
 
-> A Vue.js project
-
 ## Build Setup
 
 ``` bash
-# install dependencies
 npm install
-
-# serve with hot reload at localhost:8080
 npm run dev
-
-# build for production with minification
 npm run build
-
-# build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Knowledge point
+1. andex translate API
+2. bootstrap adjust some style
+3. how to debug in vue in vs-code
+4. parent / child components
+5. ref
 
 ## question
-- index.html can not link a local css
+1. index.html can not link a local css
   `<link rel="stylesheet" type="text/css" href="./src/assets/css/bootstrap.min.css">`
 
   but
@@ -30,3 +25,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   `import '../static/css/global.css' /*引入公共样式*/`   in main.js work
 
   `@import './../static/css/global.css'; /*引入公共样式*/` in app.vue work
+
+2. get parent or child dom simplely
+3. css middle
+4. fire child updated hook
