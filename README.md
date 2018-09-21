@@ -19,3 +19,14 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## question
+- index.html can not link a local css
+  `<link rel="stylesheet" type="text/css" href="./src/assets/css/bootstrap.min.css">`
+
+  but
+  `<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/journal/bootstrap.min.css">` work
+
+  `import '../static/css/global.css' /*引入公共样式*/`   in main.js work
+
+  `@import './../static/css/global.css'; /*引入公共样式*/` in app.vue work

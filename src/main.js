@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import Axios from 'axios'
 import App from './App'
+//import './assets/css/bootstrap.min.css' /*引入公共样式*/
 
 Vue.config.productionTip = false
 

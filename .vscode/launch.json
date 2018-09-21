@@ -7,10 +7,10 @@
     "type": "chrome",
     "request": "launch",
     "name": "Launch Chrome against localhost",
-    "url": "http://localhost:8080",
+    "url": "http://localhost:8888",
     "webRoot": "${workspaceFolder}/src",
-    "breakOnLoad": false,
-    "sourceMaps": true,
+    "breakOnLoad": true,
+    //"sourceMaps": true,
     "sourceMapPathOverrides": {
       "webpack:///src/*": "${webRoot}/*"
     }
