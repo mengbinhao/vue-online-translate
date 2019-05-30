@@ -1,20 +1,22 @@
 <template>
-    <div id="translateOutput" ref="output">
-        <h5> {{ translatedText }}</h5>
-    </div>
+  <div id="translateOutput" ref="output">
+    <slot/>
+  </div>
 </template>
 <script>
 export default {
-    name: 'translateOutput',
-    props: ['translatedText'],
-    updated: function () {
-        console.log('updatedupdatedupdatedupdated')
-        if (this.translateOutput === 'can not translate,please wait for a while') {
-            this.$refs.output.innerHTML = `<h5 style="color:red">${this.$refs.output.innerText}</h5>`
-        }
+  name: 'TranslateOutput',
+  props: {
+    translatedText: {
+      type: String,
+      default: ''
     }
+  }
 }
 </script>
-<style>
-
+<style scoped>
+#translateOutput {
+  margin-top: 10px;
+  font-size: 20px;
+}
 </style>
